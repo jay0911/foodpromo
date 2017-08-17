@@ -1,4 +1,4 @@
-var start = angular.module('ionicApp', ['ionic','ui.router'])
+var start = angular.module('ionicApp', ['ionic','ui.router','ion-datetime-picker','ng-currency'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('tabs', {

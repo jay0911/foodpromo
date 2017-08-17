@@ -1,7 +1,8 @@
       <ion-view view-title="Add Product">
         <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
-          <ion-nav-back-button class="button-icon ion-arrow-left-c">
-          </ion-nav-back-button>
+        <ion-nav-buttons side="left">
+		    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+		</ion-nav-buttons>
         </ion-nav-bar>
         <ion-content class="padding">
         <form method="post" name="simpleionform" novalidation="" ng-submit="onsubmit()">
@@ -16,15 +17,15 @@
 			</label>
 			<label class="item item-icon-left item-icon-right">
         		<i class="icon ion-social-usd-outline"></i>
-			    <input type="text" name="price" placeholder="price" ng-model="product.price" required="required" />		   
+			    <input type="text" name="price" placeholder="price" ng-currency ng-model="product.price" required="required" />		   
 				<i  ng-show="submitted &amp;&amp; simpleionform.price.$error.required" class="icon ion-heart">required</i>			
 			</label>
-		
-			<label class="item item-icon-left item-icon-right">
-        		<i class="icon ion-calculator"></i>
-			    <input type="date" name="datetime-local" placeholder="date" ng-model="product.date" required="required" />	
-				<i  ng-show="submitted &amp;&amp; simpleionform.price.$error.required" class="icon ion-heart">required</i>			
-			</label>  
+			
+			<div class="item item-icon-left" ion-datetime-picker date ng-model="product.date">
+                <i class="icon ion-ios-calendar positive"></i>
+                Click me to open the date picker:
+                <strong>{{product.date| date: "yyyy-MM-dd"}}</strong>
+            </div>
 			<button type="submit" class="button button-block button-balanced" ng-click="submitted=true">Submit</button>
 		</form>
         </ion-content>
