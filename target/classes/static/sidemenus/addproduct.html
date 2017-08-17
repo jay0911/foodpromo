@@ -1,0 +1,32 @@
+      <ion-view view-title="Add Product">
+        <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
+          <ion-nav-back-button class="button-icon ion-arrow-left-c">
+          </ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-content class="padding">
+        <form method="post" name="simpleionform" novalidation="" ng-submit="onsubmit()">
+        
+	        <div class="item item-divider">
+			   AddProduct
+			</div>
+			<label class="item item-icon-left item-icon-right">
+        		<i class="icon ion-compose"></i>
+			    <input type="text" name="name" placeholder="name" ng-model="product.name" required="required" />		   
+				<i  ng-show="submitted &amp;&amp; simpleionform.name.$error.required" class="icon ion-heart">required</i>			
+			</label>
+			<label class="item item-icon-left item-icon-right">
+        		<i class="icon ion-social-usd-outline"></i>
+			    <input type="text" name="price" placeholder="price" ng-model="product.price" required="required" />		   
+				<i  ng-show="submitted &amp;&amp; simpleionform.price.$error.required" class="icon ion-heart">required</i>			
+			</label>
+		
+			<label class="item item-icon-left item-icon-right">
+        		<i class="icon ion-calculator"></i>
+			    <input type="date" name="datetime-local" placeholder="date" ng-model="product.date" required="required" />	
+				<i  ng-show="submitted &amp;&amp; simpleionform.price.$error.required" class="icon ion-heart">required</i>			
+			</label>  
+			<button type="submit" class="button button-block button-balanced" ng-click="submitted=true">Submit</button>
+		</form>
+        </ion-content>
+      </ion-view>
+      

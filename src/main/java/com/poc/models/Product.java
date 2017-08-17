@@ -1,12 +1,9 @@
 package com.poc.models;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,15 +17,19 @@ public class Product {
 	private String name;
 	private String picpath;
 	private int price;
-	
-	@ManyToMany(mappedBy="products")
-	private List<Order> orders;
+	private String created;
 	
 	public Product(){}
 	
 	public Product(String name,int price){
 		this.name = name;
 		this.price = price;
+	}
+	
+	public Product(String name,int price,String created){
+		this.name = name;
+		this.price = price;
+		this.created = created;
 	}
 	
 	public Long getId() {
@@ -61,11 +62,11 @@ public class Product {
 		return String.format("Name:%s,Price:%s", getName(),getPrice());
 	}
 
-	public List<Order> getOrders() {
-		return orders;
+	public String getCreated() {
+		return created;
 	}
 
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
+	public void setCreated(String created) {
+		this.created = created;
 	}
 }

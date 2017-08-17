@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: ulam
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: john.oliveros
+Implementation-Vendor-Id: com.poc
+Build-Jdk: 1.8.0_121
+Implementation-URL: http://projects.spring.io/spring-boot/ulam/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

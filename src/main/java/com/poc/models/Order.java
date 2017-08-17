@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
@@ -22,14 +22,27 @@ public class Order {
     private String name;
     private String location;
     private String orderdate;
+    private int claimflag;
+    private int paymentflag;
+    private int payment;
     
     public Order(String name,String location,List<Product> products){
     	this.name = name;
     	this.location = location;
     	this.products = products;
     }
+    //claimed = 1 not claimed = 0
+    //paid = 1 not paid = 0
+    public Order(String name,String location,List<Product> products,int claimflag,int paymentflag,int payment){
+    	this.name = name;
+    	this.location = location;
+    	this.products = products;
+    	this.setClaimflag(claimflag);
+    	this.setPaymentflag(paymentflag);
+    	this.setPayment(payment);
+    }
     
-    @ManyToMany(cascade=CascadeType.ALL)
+    @OneToMany(cascade=CascadeType.ALL)
     @JoinTable(
         name="orderline",
         joinColumns=@JoinColumn(name="orderid", referencedColumnName="id"),
@@ -69,5 +82,23 @@ public class Order {
 
 	public void setProduct(List<Product> product) {
 		this.products = product;
+	}
+	public int getClaimflag() {
+		return claimflag;
+	}
+	public void setClaimflag(int claimflag) {
+		this.claimflag = claimflag;
+	}
+	public int getPaymentflag() {
+		return paymentflag;
+	}
+	public void setPaymentflag(int paymentflag) {
+		this.paymentflag = paymentflag;
+	}
+	public int getPayment() {
+		return payment;
+	}
+	public void setPayment(int payment) {
+		this.payment = payment;
 	}
 }
