@@ -21,10 +21,12 @@
 				<i  ng-show="submitted &amp;&amp; simpleionform.price.$error.required" class="icon ion-heart">required</i>			
 			</label>
 			
-			<div class="item item-icon-left" ion-datetime-picker date ng-model="product.date">
+			<div class="item item-icon-left" ion-datetime-picker date ng-model="product.created">
                 <i class="icon ion-ios-calendar positive"></i>
-                Click me to open the date picker:
-                <strong>{{product.date| date: "yyyy-MM-dd"}}</strong>
+                <div ng-if="product.created == ''">
+                	yyyy-MM-dd
+             	</div>
+                <strong>{{product.created| date: "yyyy-MM-dd"}}</strong>
             </div>
 			<button type="submit" class="button button-block button-balanced" ng-click="submitted=true">Submit</button>
 		</form>

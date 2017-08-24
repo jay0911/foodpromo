@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +28,7 @@ public class OrderController {
 	
 	@ApiOperation(value = "Saves the order of customer",
 			    notes = "order consist of info of customer and products")
-	@PostMapping("/saveOrder")
+	@PutMapping("/saveOrder")
 	public void saveOrder(@ApiParam(value = "Order dto object that the properties of that object must be filled in", required = true) @RequestBody OrderDTO dto) {
 		orderService.saveOrder(dto);
 	}

@@ -23,6 +23,16 @@ var start = angular.module('ionicApp', ['ionic','ui.router','ion-datetime-picker
         }
       }
     })
+    .state('tabs.editproduct', {
+      url: "/editproduct",
+      cache: false,
+      views: {
+        'menuContent': {
+          templateUrl: "sidemenus/editproduct.html",
+          controller: 'editproduct'
+        }
+      }
+    })
     ;
 
    $urlRouterProvider.otherwise("/tab/home");
